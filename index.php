@@ -135,6 +135,15 @@ class main {
       arrayFunctions::arrayRsort ($arrayInput);
       $stringText = "<hr />";
       stringFunctions::printThis ($stringText);
+      //5th
+      $stringText = "<h3>Sort function</h3>";
+      stringFunctions::printThis ($stringText);
+      $arrayInput = array('a','c','b',22,6,'a');
+      arrayFunctions::printThis ($arrayInput);
+      arrayFunctions::arraySort ($arrayInput);
+      $stringText = "<hr />";
+      stringFunctions::printThis ($stringText);
+
     }
     public function __destruct () {
       echo '</br> I\'m Done';
@@ -166,6 +175,13 @@ class main {
       rsort($input);
       print_r($input);
     }
+
+    static public function arraySort ($input) {
+      print("</br>");
+      rsort($input);
+      print_r($input);
+    }
+
   }
 
   class stringFunctions {
