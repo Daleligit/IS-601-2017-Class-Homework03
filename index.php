@@ -127,6 +127,14 @@ class main {
       arrayFunctions::countEle ($arrayInput);
       $stringText = "<hr />";
       stringFunctions::printThis ($stringText);
+      //4th
+      $stringText = "<h3>Sort in reverse order function</h3>";
+      stringFunctions::printThis ($stringText);
+      $arrayInput = array('a','c','b',22,6,'a');
+      arrayFunctions::printThis ($arrayInput);
+      arrayFunctions::arrayRsort ($arrayInput);
+      $stringText = "<hr />";
+      stringFunctions::printThis ($stringText);
     }
     public function __destruct () {
       echo '</br> I\'m Done';
@@ -151,6 +159,12 @@ class main {
     static public function countEle ($input) {
       print("</br>");
       print_r(count($input));
+    }
+
+    static public function arrayRsort ($input) {
+      print("</br>");
+      rsort($input);
+      print_r($input);
     }
   }
 
