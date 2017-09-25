@@ -97,6 +97,19 @@ class main {
       stringFunctions::getSubstring ($stringText,$substringStart,$substringLen);
       $stringText = "<hr />";
       stringFunctions::printThis ($stringText);
+      //10 array functions
+      $stringText = "<h1>10 array Functions:</h3>";
+      stringFunctions::printThis ($stringText);
+      //1st
+      $stringText = "<h3>Split function</h3>";
+      stringFunctions::printThis ($stringText);
+      $arrayInput = array('a','c','b',22,6,'a');
+      arrayFunctions::printThis ($arrayInput);
+      $splitSize = 2;
+      $stringText = "</br>I would like to splite the array with size $splitSize";
+      stringFunctions::printThis ($stringText);
+      arrayFunctions::arraySplit ($arrayInput,$splitSize);
+
     }
     public function __destruct () {
       echo '</br> I\'m Done';
@@ -106,7 +119,12 @@ class main {
   class arrayFunctions {
     static public function printThis ($input) {
       print_r($input);
-    }	      
+    }
+
+    static public function arraySplit ($input,$input2) {
+      print("</br>");
+      print_r(array_chunk($input,$input2));
+    }
   }
 
   class stringFunctions {
