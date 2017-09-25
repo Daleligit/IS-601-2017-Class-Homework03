@@ -109,7 +109,17 @@ class main {
       $stringText = "</br>I would like to splite the array with size $splitSize";
       stringFunctions::printThis ($stringText);
       arrayFunctions::arraySplit ($arrayInput,$splitSize);
-
+      $stringText = "<hr />";
+      stringFunctions::printThis ($stringText);
+      //2nd
+      $stringText = "<h3>Counts all values function</h3>";
+      stringFunctions::printThis ($stringText);
+      $arrayInput = array('a','c','b',22,6,'a');
+      arrayFunctions::printThis ($arrayInput);
+      arrayFunctions::arrayCount ($arrayInput);
+      $stringText = "<hr />";
+      stringFunctions::printThis ($stringText);
+      //3rd
     }
     public function __destruct () {
       echo '</br> I\'m Done';
@@ -124,6 +134,11 @@ class main {
     static public function arraySplit ($input,$input2) {
       print("</br>");
       print_r(array_chunk($input,$input2));
+    }
+
+    static public function arrayCount ($input) {
+      print("</br>");
+      print_r(array_count_values($input));
     }
   }
 
