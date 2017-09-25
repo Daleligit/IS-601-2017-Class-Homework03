@@ -26,6 +26,16 @@
       stringFunctions::printThis ($stringText);
       $stringText = "<hr />";
       stringFunctions::printThis ($stringText);
+      //3rd
+      $stringText = "<h3>Make strings uppercase function:</h3>";
+      stringFunctions::printThis ($stringText);
+      $stringText = "This is my string example";
+      stringFunctions::printThis ($stringText);
+      $stringUppercaseText = "</br>" . stringFunctions::stringUppercase ($stringText);
+      stringFunctions::printThis ($stringUppercaseText);
+      $stringText = "<hr />";
+      stringFunctions::printThis ($stringText);
+
     }
     public function __destruct () {
       echo '</br> I\'m Done';
@@ -39,6 +49,10 @@
 
     static public function getStringLen ($input) {
       return(strlen($input));
+    }
+
+    static public function stringUppercase ($input) {
+      return(strtoupper($input));
     }
   }
 
