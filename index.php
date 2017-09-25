@@ -85,9 +85,18 @@ class main {
       stringFunctions::stringShuffles ($stringText);
       $stringText = "<hr />";
       stringFunctions::printThis ($stringText);
-
-
-
+      //10th
+      $stringText = "<h3>Substring function</h3>";
+      stringFunctions::printThis ($stringText);
+      $stringText = "This is my string example";
+      stringFunctions::printThis ($stringText);
+      $substringStart = 8;
+      $substringLen = 5;
+      $stringText2 = "</br>I would like to have a substring start at position $substringStart with the length of $substringLen";
+      stringFunctions::printThis ($stringText2);
+      stringFunctions::getSubstring ($stringText,$substringStart,$substringLen);
+      $stringText = "<hr />";
+      stringFunctions::printThis ($stringText);
     }
     public function __destruct () {
       echo '</br> I\'m Done';
@@ -146,6 +155,10 @@ class main {
 
     static public function stringShuffles ($input) {
       print("</br>" . str_shuffle($input));
+    }
+
+    static public function getSubstring ($input,$input2,$input3) {
+      print("</br>" . substr($input,$input2,$input3));
     }
   }
 
