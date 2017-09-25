@@ -151,7 +151,14 @@ class main {
       arrayFunctions::arraySum ($arrayInput);
       $stringText = "<hr />";
       stringFunctions::printThis ($stringText);
-
+      //7th
+      $stringText = "<h3>Pop function</h3>";
+      stringFunctions::printThis ($stringText);
+      $arrayInput = array('a','c','b',22,6,'a');
+      arrayFunctions::printThis ($arrayInput);
+      arrayFunctions::arrayPop ($arrayInput);
+      $stringText = "<hr />";
+      stringFunctions::printThis ($stringText);
     }
     public function __destruct () {
       echo '</br> I\'m Done';
@@ -193,6 +200,13 @@ class main {
     static public function arraySum ($input) {
       print("</br>" . array_sum($input));
     }
+    
+    static public function arrayPop ($input) { 
+      print("</br>");
+      array_pop($input);
+      print_r($input);
+    }
+
   }
 
   class stringFunctions {
