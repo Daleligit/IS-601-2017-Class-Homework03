@@ -167,6 +167,18 @@ class main {
       arrayFunctions::arrayShift ($arrayInput);
       $stringText = "<hr />";
       stringFunctions::printThis ($stringText);
+      //9th
+      $stringText = "<h3>Fetch a key function</h3>";
+      stringFunctions::printThis ($stringText);
+      $arrayInput = array('a','c','b',22,6,'a');
+      arrayFunctions::printThis ($arrayInput);
+      arrayFunctions::fetchKey ($arrayInput);
+      $stringText = "<hr />";
+      stringFunctions::printThis ($stringText);
+      //10th
+     // $stringText = "<h3> function</h3>";
+     // stringFunctions::printThis ($stringText);
+     // arrayFunctions::arrayRange ($arrayInput);
     }
     public function __destruct () {
       echo '</br> I\'m Done';
@@ -221,6 +233,9 @@ class main {
       print_r($input);
     }
 
+    static public function fetchKey ($input) {
+      print("</br>" . key($input));
+    }
   }
 
   class stringFunctions {
