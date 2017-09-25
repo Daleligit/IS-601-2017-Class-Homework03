@@ -40,12 +40,24 @@ class main {
       stringFunctions::stringExplode ($stringText);
       $stringText = "<hr />";
       stringFunctions::printThis ($stringText);
+      //5th
+      $stringText = "<h3>Join array elements with a string function:</h3>";
+      stringFunctions::printThis ($stringText);
+      $stringText = array('This','is','my','array','example');
+      arrayFunctions::printThis ($stringText);
+      stringFunctions::stringImplode ($stringText);
 
 
     }
     public function __destruct () {
       echo '</br> I\'m Done';
     }
+  }
+  
+  class arrayFunctions {
+    static public function printThis ($input) {
+      print_r($input);
+    }	      
   }
 
   class stringFunctions {
@@ -67,6 +79,11 @@ class main {
       $pieces = explode(" ",$input);
       Print("</br>");
       print_r($pieces);
+    }
+
+    static public function stringImplode ($input) {
+      $implodeString = implode(",",$input);
+      print("</br>$implodeString");
     }
   }
 
