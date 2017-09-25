@@ -143,6 +143,14 @@ class main {
       arrayFunctions::arraySort ($arrayInput);
       $stringText = "<hr />";
       stringFunctions::printThis ($stringText);
+      //6th
+      $stringText = "<h3>Sum function</h3>";
+      stringFunctions::printThis ($stringText);
+      $arrayInput = array('a','c','b',22,6,'a');
+      arrayFunctions::printThis ($arrayInput);
+      arrayFunctions::arraySum ($arrayInput);
+      $stringText = "<hr />";
+      stringFunctions::printThis ($stringText);
 
     }
     public function __destruct () {
@@ -178,10 +186,13 @@ class main {
 
     static public function arraySort ($input) {
       print("</br>");
-      rsort($input);
+      sort($input);
       print_r($input);
     }
-
+    
+    static public function arraySum ($input) {
+      print("</br>" . array_sum($input));
+    }
   }
 
   class stringFunctions {
