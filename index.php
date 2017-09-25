@@ -46,7 +46,19 @@ class main {
       $stringText = array('This','is','my','array','example');
       arrayFunctions::printThis ($stringText);
       stringFunctions::stringImplode ($stringText);
-
+      $stringText = "<hr />";
+      stringFunctions::printThis ($stringText);
+      //6th
+      $stringText = "<h3>Find substring position function:</h3>";
+      stringFunctions::printThis ($stringText);
+      $stringText = "This is my string example</br>The substring I want to find position is: ";
+      stringFunctions::printThis ($stringText);
+      $stringText2 = "my";
+      stringFunctions::printThis ($stringText2);
+      stringFunctions::stringPosition ($stringText2,$stringText);
+      $stringText = "<hr />";
+      stringFunctions::printThis ($stringText);
+      
 
     }
     public function __destruct () {
@@ -84,6 +96,16 @@ class main {
     static public function stringImplode ($input) {
       $implodeString = implode(",",$input);
       print("</br>$implodeString");
+    }
+
+    static public function stringPosition ($input,$input2) {
+      $pos = strpos ($input2,$input);
+      if ($pos === false) {
+        print("</br>The substring was not found in the example string");
+      } else {
+        print("</br>The substring was found in the example string");
+        print(" and exists at position $pos");
+      }
     }
   }
 
