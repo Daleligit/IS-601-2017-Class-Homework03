@@ -116,10 +116,17 @@ class main {
       stringFunctions::printThis ($stringText);
       $arrayInput = array('a','c','b',22,6,'a');
       arrayFunctions::printThis ($arrayInput);
-      arrayFunctions::arrayCount ($arrayInput);
+      arrayFunctions::countVal ($arrayInput);
       $stringText = "<hr />";
       stringFunctions::printThis ($stringText);
       //3rd
+      $stringText = "<h3>Count elements function</h3>";
+      stringFunctions::printThis ($stringText);
+      $arrayInput = array('a','c','b',22,6,'a');
+      arrayFunctions::printThis ($arrayInput);
+      arrayFunctions::countEle ($arrayInput);
+      $stringText = "<hr />";
+      stringFunctions::printThis ($stringText);
     }
     public function __destruct () {
       echo '</br> I\'m Done';
@@ -136,9 +143,14 @@ class main {
       print_r(array_chunk($input,$input2));
     }
 
-    static public function arrayCount ($input) {
+    static public function countVal ($input) {
       print("</br>");
       print_r(array_count_values($input));
+    }
+
+    static public function countEle ($input) {
+      print("</br>");
+      print_r(count($input));
     }
   }
 
