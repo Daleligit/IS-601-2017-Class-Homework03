@@ -2,7 +2,7 @@
   
   $obj = new main();
 
-  class main {
+class main {
     public function __construct () {
       echo '<i>This is the homework 03 for creating examples of  10 string and 10 
       array functions</i></br>';
@@ -21,9 +21,7 @@
       stringFunctions::printThis ($stringText);
       $stringText = "This is my string example";
       stringFunctions::printThis ($stringText);
-      $stringLen = stringFunctions::getStringLen($stringText);
-      $stringText = "</br>String length = $stringLen";
-      stringFunctions::printThis ($stringText);
+      stringFunctions::getStringLen ($stringText);
       $stringText = "<hr />";
       stringFunctions::printThis ($stringText);
       //3rd
@@ -31,10 +29,18 @@
       stringFunctions::printThis ($stringText);
       $stringText = "This is my string example";
       stringFunctions::printThis ($stringText);
-      $stringUppercaseText = "</br>" . stringFunctions::stringUppercase ($stringText);
-      stringFunctions::printThis ($stringUppercaseText);
+      stringFunctions::stringUppercase ($stringText);
       $stringText = "<hr />";
       stringFunctions::printThis ($stringText);
+      //4th
+      $stringText = "<h3>Splite a string function:</h3>";
+      stringFunctions::printThis ($stringText);
+      $stringText = "This is my string example";
+      stringFunctions::printThis ($stringText);
+      stringFunctions::stringExplode ($stringText);
+      $stringText = "<hr />";
+      stringFunctions::printThis ($stringText);
+
 
     }
     public function __destruct () {
@@ -48,11 +54,19 @@
     }
 
     static public function getStringLen ($input) {
-      return(strlen($input));
+      $stringLen = strlen($input);
+      print("</br>String Length = $stringLen");
     }
 
     static public function stringUppercase ($input) {
-      return(strtoupper($input));
+      $stringUpper = (strtoupper($input));
+      print("</br>$stringUpper");
+    }
+
+    static public function stringExplode ($input) {
+      $pieces = explode(" ",$input);
+      Print("</br>");
+      print_r($pieces);
     }
   }
 
