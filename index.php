@@ -58,7 +58,20 @@ class main {
       stringFunctions::stringPosition ($stringText2,$stringText);
       $stringText = "<hr />";
       stringFunctions::printThis ($stringText);
+      //7th
+      $stringText = "<h3>String repeat function</h3>";
+      stringFunctions::printThis ($stringText);
+      $stringText = "This is my string example</br>";
+      stringFunctions::printThis ($stringText);
+      $repeatTimes = 5;
+      $stringText2 = "I would like to repeat for $repeatTimes times";
+      stringFunctions::printThis ($stringText2);
+      stringFunctions::stringRepeat($stringText,$repeatTimes);
+      $stringText = "<hr />";
+      stringFunctions::printThis ($stringText);
+      //8th
       
+
 
     }
     public function __destruct () {
@@ -106,6 +119,10 @@ class main {
         print("</br>The substring was found in the example string");
         print(" and exists at position $pos");
       }
+    }
+
+    static public function stringRepeat ($input,$input2) {
+      print("</br>" . str_repeat($input,$input2));
     }
   }
 
