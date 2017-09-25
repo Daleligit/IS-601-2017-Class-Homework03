@@ -70,13 +70,21 @@ class main {
       $stringText = "<hr />";
       stringFunctions::printThis ($stringText);
       //8th
-      $stringText = "<h3>Reverse a string</h3>";
+      $stringText = "<h3>Reverse a string function</h3>";
       stringFunctions::printThis ($stringText);
       $stringText = "This is my string example";
       stringFunctions::printThis ($stringText);
       stringfunctions::stringReverse ($stringText);
       $stringText = "<hr />";
-      tringFunctions::printThis ($stringText);
+      stringFunctions::printThis ($stringText);
+      //9th
+      $stringText = "<h3>Randomly shuffles function</h3>";
+      stringFunctions::printThis ($stringText);
+      $stringText = "This is my string example";
+      stringFunctions::printThis ($stringText);
+      stringFunctions::stringShuffles ($stringText);
+      $stringText = "<hr />";
+      stringFunctions::printThis ($stringText);
 
 
 
@@ -134,6 +142,10 @@ class main {
 
     static public function stringReverse ($input) {
       print("</br>" . strrev($input));
+    }
+
+    static public function stringShuffles ($input) {
+      print("</br>" . str_shuffle($input));
     }
   }
 
