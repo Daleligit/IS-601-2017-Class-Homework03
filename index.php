@@ -159,6 +159,14 @@ class main {
       arrayFunctions::arrayPop ($arrayInput);
       $stringText = "<hr />";
       stringFunctions::printThis ($stringText);
+      //8th
+      $stringText = "<h3>Shift function</h3>";
+      stringFunctions::printThis ($stringText);
+      $arrayInput = array('a','c','b',22,6,'a');
+      arrayFunctions::printThis ($arrayInput);
+      arrayFunctions::arrayShift ($arrayInput);
+      $stringText = "<hr />";
+      stringFunctions::printThis ($stringText);
     }
     public function __destruct () {
       echo '</br> I\'m Done';
@@ -204,6 +212,12 @@ class main {
     static public function arrayPop ($input) { 
       print("</br>");
       array_pop($input);
+      print_r($input);
+    }
+
+    static public function arrayShift ($input) {
+      print("</br>");
+      array_Shift($input);
       print_r($input);
     }
 
