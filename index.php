@@ -176,9 +176,17 @@ class main {
       $stringText = "<hr />";
       stringFunctions::printThis ($stringText);
       //10th
-     // $stringText = "<h3> function</h3>";
-     // stringFunctions::printThis ($stringText);
-     // arrayFunctions::arrayRange ($arrayInput);
+      $stringText = "<h3>Create an array containing a range of elements function</h3>";
+      stringFunctions::printThis ($stringText);
+      $arrRangeStr = 10;
+      $arrRangeEnd = 100;
+      $arrRange = 5;
+      $stringText = "I would like to create an array starts at $arrRangeStr and
+      ends at $arrRangeEnd with the range of $arrRange";
+      stringFunctions::printThis ($stringText);
+      arrayFunctions::arrayRange ($arrRangeStr,$arrRangeEnd,$arrRange);
+      $stringText = "<hr />";
+      stringFunctions::printThis ($stringText);
     }
     public function __destruct () {
       echo '</br> I\'m Done';
@@ -235,6 +243,11 @@ class main {
 
     static public function fetchKey ($input) {
       print("</br>" . key($input));
+    }
+
+    static public function arrayRange ($input,$input2,$input3) {
+      print("</br>");
+      print_r(range($input,$input2,$input3));
     }
   }
 
