@@ -70,7 +70,14 @@ class main {
       $stringText = "<hr />";
       stringFunctions::printThis ($stringText);
       //8th
-      
+      $stringText = "<h3>Reverse a string</h3>";
+      stringFunctions::printThis ($stringText);
+      $stringText = "This is my string example";
+      stringFunctions::printThis ($stringText);
+      stringfunctions::stringReverse ($stringText);
+      $stringText = "<hr />";
+      tringFunctions::printThis ($stringText);
+
 
 
     }
@@ -123,6 +130,10 @@ class main {
 
     static public function stringRepeat ($input,$input2) {
       print("</br>" . str_repeat($input,$input2));
+    }
+
+    static public function stringReverse ($input) {
+      print("</br>" . strrev($input));
     }
   }
 
