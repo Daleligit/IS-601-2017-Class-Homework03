@@ -35,59 +35,47 @@
       $this->html .= htmlTags::horizontalRule ();
       //5th
       $this->html .= htmlTags::headingThree ('Join array elements with a string function:');
-      $this->html .= arrayFunctions::printThis ($arrayExample);
+      $this->html .= htmlTags::changeRow (arrayFunctions::printThis ($arrayExample));
       $this->html .= htmlTags::changeRow (stringFunctions::stringImplode ($arrayExample));
       $this->html .= htmlTags::horizontalRule ();
-      print ($this->html);
       //6th
-      $stringText = "<h3>Find substring position function:</h3>";
-      stringFunctions::printThis ($stringText);
-      $stringText = "This is my string example</br>The substring I want to find position is: ";
-      stringFunctions::printThis ($stringText);
-      $stringText2 = "my";
-      stringFunctions::printThis ($stringText2);
-      stringFunctions::stringPosition ($stringText2,$stringText);
-      $stringText = "<hr />";
-      stringFunctions::printThis ($stringText);
+      $this->html .= htmlTags::headingThree ('Find substring position function:');
+      $this->html .= htmlTags::changeRow ($stringText);
+      $stringInput = 'my';
+      $this->html .= htmlTags::changeRow ('The substring I want to find position is: ' . $stringInput);
+      if (stringFunctions::stringPosition ($stringInput,$stringText) === false) {
+        $this->html .= htmlTags::changeRow ('The substring was not found in the example string');
+      } else {
+        $this->html .= htmlTags::changeRow ('The substring was found in the example string and exists at position ' . stringFunctions::stringPosition
+	($stringInput,$stringText));
+      }
+      $this->html .= htmlTags::horizontalRule ();     
       //7th
-      $stringText = "<h3>String repeat function</h3>";
-      stringFunctions::printThis ($stringText);
-      $stringText = "This is my string example</br>";
-      stringFunctions::printThis ($stringText);
+      $this->html .= htmlTags::headingThree ('String repeat function');
+      $this->html .= htmlTags::changeRow ($stringText);
       $repeatTimes = 5;
-      $stringText2 = "I would like to repeat for $repeatTimes times";
-      stringFunctions::printThis ($stringText2);
-      stringFunctions::stringRepeat($stringText,$repeatTimes);
-      $stringText = "<hr />";
-      stringFunctions::printThis ($stringText);
+      $this->html .= htmlTags::changeRow ('I would like to repeat for' .  $repeatTimes . ' times');
+      $this->html .= htmlTags::changeRow (stringFunctions::stringRepeat ($stringText,$repeatTimes));
+      $this->html .= htmlTags::horizontalRule ();
       //8th
-      $stringText = "<h3>Reverse a string function</h3>";
-      stringFunctions::printThis ($stringText);
-      $stringText = "This is my string example";
-      stringFunctions::printThis ($stringText);
-      stringfunctions::stringReverse ($stringText);
-      $stringText = "<hr />";
-      stringFunctions::printThis ($stringText);
+      $this->html .= htmlTags::headingThree ('Reverse a string function');
+      $this->html .= htmlTags::changeRow ($stringText);
+      $this->html .= htmlTags::changeRow (stringfunctions::stringReverse ($stringText));
+      $this->html .= htmlTags::horizontalRule ();
       //9th
-      $stringText = "<h3>Randomly shuffles function</h3>";
-      stringFunctions::printThis ($stringText);
-      $stringText = "This is my string example";
-      stringFunctions::printThis ($stringText);
-      stringFunctions::stringShuffles ($stringText);
-      $stringText = "<hr />";
-      stringFunctions::printThis ($stringText);
+      $this->html .= htmlTags::headingThree ('Randomly shuffles function');
+      $this->html .= htmlTags::changeRow ($stringText);
+      $this->html .= htmlTags::changeRow (stringfunctions::stringShuffles ($stringText));
+      $this->html .= htmlTags::horizontalRule ();
       //10th
-      $stringText = "<h3>Substring function</h3>";
-      stringFunctions::printThis ($stringText);
-      $stringText = "This is my string example";
-      stringFunctions::printThis ($stringText);
+      $this->html .= htmlTags::headingThree ('Substring function');
+      $this->html .= htmlTags::changeRow ($stringText);
       $substringStart = 8;
       $substringLen = 5;
-      $stringText2 = "</br>I would like to have a substring start at position $substringStart with the length of $substringLen";
-      stringFunctions::printThis ($stringText2);
-      stringFunctions::getSubstring ($stringText,$substringStart,$substringLen);
-      $stringText = "<hr />";
-      stringFunctions::printThis ($stringText);
+      $this->html .= htmlTags::changeRow ('I would like to have a substring start at position ' . $substringStart . ' with the length of ' . $substringLen);
+      $this->html .= htmlTags::changeRow (stringFunctions::getSubstring ($stringText,$substringStart,$substringLen));
+      $this->html .= htmlTags::horizontalRule ();
+      print ($this->html);
       //10 array functions
       $stringText = "<h1>10 array Functions:</h3>";
       stringFunctions::printThis ($stringText);
@@ -264,29 +252,23 @@
     }
 
     static public function stringPosition ($input,$input2) {
-      $pos = strpos ($input2,$input);
-      if ($pos === false) {
-        print("</br>The substring was not found in the example string");
-      } else {
-        print("</br>The substring was found in the example string");
-        print(" and exists at position $pos");
-      }
+      return strpos ($input2,$input);
     }
 
     static public function stringRepeat ($input,$input2) {
-      print("</br>" . str_repeat($input,$input2));
+      return str_repeat($input,$input2);
     }
 
     static public function stringReverse ($input) {
-      print("</br>" . strrev($input));
+      return strrev($input);
     }
 
     static public function stringShuffles ($input) {
-      print("</br>" . str_shuffle($input));
+      return str_shuffle($input);
     }
 
     static public function getSubstring ($input,$input2,$input3) {
-      print("</br>" . substr($input,$input2,$input3));
+      return substr($input,$input2,$input3);
     }
   }
   
