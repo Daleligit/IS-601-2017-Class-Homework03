@@ -1,8 +1,11 @@
 <?php
-  
-  $obj = new main();
 
-class main {
+  $obj = new main();
+  
+  class main {
+    
+    private $html;
+	
     public function __construct () {
       echo '<i>This is the homework 03 for creating examples of  10 string and 10 
       array functions</i></br>';
@@ -301,6 +304,29 @@ class main {
 
     static public function getSubstring ($input,$input2,$input3) {
       print("</br>" . substr($input,$input2,$input3));
+    }
+  }
+  
+  class htmlTags {
+    
+    static public function horizontalRule () {
+      $html = '<hr />';
+      return $html;
+    }
+	
+    static public function headingOne ($html) {
+      $html = '<h1>' . $html . '</h1>';
+      return $html;
+    }
+	
+    static public function headingThree ($html) {
+      $html = '<h3>' . $html . '</h3>';
+      return $html;
+    }
+	
+    static public function changeRow ($html) {
+      $html = $html . '</br>';
+      return $html;
     }
   }
 
