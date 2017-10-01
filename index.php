@@ -7,50 +7,38 @@
     private $html;
 	
     public function __construct () {
-      echo '<i>This is the homework 03 for creating examples of  10 string and 10 
-      array functions</i></br>';
+      
+      $this->html .= htmlTags::changeRow (htmlTags::styleItalic ('This is the homework 03 for creating examples of  10 string and 10 array functions'));
       // 10 string functions
-      $stringText = "<h1>10 String Functions:</h3>";
-      stringFunctions::printThis ($stringText);
+      
+      $stringText = 'This is my string example';
+      $arrayExample = array('This','is','my','array','example');
+      $this->html .= htmlTags::headingOne ('10 String Functions:');
       // 1st
-      $stringText = "<h3>Print string function:</h3>";
-      stringFunctions::printThis ($stringText);
-      $stringText = "This is my string example";
-      stringFunctions::printThis ($stringText);
-      $stringText = "<hr />";
-      stringFunctions::printThis ($stringText);
+      $this->html .= htmlTags::headingThree ('Print string function:');
+      $this->html .= htmlTags::changeRow ($stringText);
+      $this->html .= htmlTags::horizontalRule ();
       // 2nd
-      $stringText = "<h3>Get string length function:</h3>";
-      stringFunctions::printThis ($stringText);
-      $stringText = "This is my string example";
-      stringFunctions::printThis ($stringText);
-      stringFunctions::getStringLen ($stringText);
-      $stringText = "<hr />";
-      stringFunctions::printThis ($stringText);
+      $this->html .= htmlTags::headingThree ('Get string length function:');
+      $this->html .= htmlTags::changeRow ($stringText);
+      $this->html .= htmlTags::changeRow ('The string length: ' . stringFunctions::getStringLen ($stringText));
+      $this->html .= htmlTags::horizontalRule ();
       //3rd
-      $stringText = "<h3>Make strings uppercase function:</h3>";
-      stringFunctions::printThis ($stringText);
-      $stringText = "This is my string example";
-      stringFunctions::printThis ($stringText);
-      stringFunctions::stringUppercase ($stringText);
-      $stringText = "<hr />";
-      stringFunctions::printThis ($stringText);
+      $this->html .= htmlTags::headingThree ('Make strings uppercase function:');
+      $this->html .= htmlTags::changeRow ($stringText);
+      $this->html .= htmlTags::changeRow (stringFunctions::stringUppercase($stringText));
+      $this->html .= htmlTags::horizontalRule ();
       //4th
-      $stringText = "<h3>Splite a string function:</h3>";
-      stringFunctions::printThis ($stringText);
-      $stringText = "This is my string example";
-      stringFunctions::printThis ($stringText);
-      stringFunctions::stringExplode ($stringText);
-      $stringText = "<hr />";
-      stringFunctions::printThis ($stringText);
+      $this->html .= htmlTags::headingThree ('Splite a string function:');
+      $this->html .= htmlTags::changeRow ($stringText);
+      $this->html .= htmlTags::changeRow (arrayFunctions::printThis (stringFunctions::stringExplode ($stringText)));
+      $this->html .= htmlTags::horizontalRule ();
       //5th
-      $stringText = "<h3>Join array elements with a string function:</h3>";
-      stringFunctions::printThis ($stringText);
-      $stringText = array('This','is','my','array','example');
-      arrayFunctions::printThis ($stringText);
-      stringFunctions::stringImplode ($stringText);
-      $stringText = "<hr />";
-      stringFunctions::printThis ($stringText);
+      $this->html .= htmlTags::headingThree ('Join array elements with a string function:');
+      $this->html .= arrayFunctions::printThis ($arrayExample);
+      $this->html .= htmlTags::changeRow (stringFunctions::stringImplode ($arrayExample));
+      $this->html .= htmlTags::horizontalRule ();
+      print ($this->html);
       //6th
       $stringText = "<h3>Find substring position function:</h3>";
       stringFunctions::printThis ($stringText);
@@ -198,7 +186,7 @@
   
   class arrayFunctions {
     static public function printThis ($input) {
-      print_r($input);
+      return print_r($input,true);
     }
 
     static public function arraySplit ($input,$input2) {
@@ -260,24 +248,19 @@
     }
 
     static public function getStringLen ($input) {
-      $stringLen = strlen($input);
-      print("</br>String Length = $stringLen");
+      return strlen($input);
     }
 
     static public function stringUppercase ($input) {
-      $stringUpper = (strtoupper($input));
-      print("</br>$stringUpper");
+      return strtoupper($input);
     }
 
     static public function stringExplode ($input) {
-      $pieces = explode(" ",$input);
-      Print("</br>");
-      print_r($pieces);
+      return explode(" ",$input);
     }
 
     static public function stringImplode ($input) {
-      $implodeString = implode(",",$input);
-      print("</br>$implodeString");
+      return implode(",",$input);
     }
 
     static public function stringPosition ($input,$input2) {
@@ -328,6 +311,12 @@
       $html = $html . '</br>';
       return $html;
     }
+
+    static public function styleItalic ($html) {
+      $html = '<i>' . $html . '</i>';
+      return $html;
+    }
+
   }
 
 ?>
