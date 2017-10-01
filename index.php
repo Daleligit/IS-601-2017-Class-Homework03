@@ -54,8 +54,8 @@
       $this->html .= htmlTags::headingThree ('String repeat function');
       $this->html .= htmlTags::changeRow ($stringText);
       $repeatTimes = 5;
-      $this->html .= htmlTags::changeRow ('I would like to repeat for' .  $repeatTimes . ' times');
-      $this->html .= htmlTags::changeRow (stringFunctions::stringRepeat ($stringText,$repeatTimes));
+      $this->html .= htmlTags::changeRow ('I would like to repeat for ' .  $repeatTimes . ' times');
+      $this->html .= htmlTags::changeRow (stringFunctions::stringRepeat (htmlTags::changeRow ($stringText) ,$repeatTimes));
       $this->html .= htmlTags::horizontalRule ();
       //8th
       $this->html .= htmlTags::headingThree ('Reverse a string function');
@@ -106,54 +106,41 @@
       $this->html .= htmlTags::changeRow (arrayFunctions::printThis ($arrayInput));
       $this->html .= htmlTags::changeRow (arrayFunctions::printThis (arrayFunctions::arraySort ($arrayInput)));
       $this->html .= htmlTags::horizontalRule ();
-      print ($this->html);
       //6th
-      $stringText = "<h3>Sum function</h3>";
-      stringFunctions::printThis ($stringText);
-      $arrayInput = array('a','c','b',22,6,'a');
-      arrayFunctions::printThis ($arrayInput);
-      arrayFunctions::arraySum ($arrayInput);
-      $stringText = "<hr />";
-      stringFunctions::printThis ($stringText);
+      $this->html .= htmlTags::headingThree ('Sum function');
+      $this->html .= htmlTags::changeRow (arrayFunctions::printThis ($arrayInput));
+      $this->html .= htmlTags::changeRow (arrayFunctions::arraySum ($arrayInput));
+      $this->html .= htmlTags::horizontalRule ();
       //7th
-      $stringText = "<h3>Pop function</h3>";
-      stringFunctions::printThis ($stringText);
-      $arrayInput = array('a','c','b',22,6,'a');
-      arrayFunctions::printThis ($arrayInput);
-      arrayFunctions::arrayPop ($arrayInput);
-      $stringText = "<hr />";
-      stringFunctions::printThis ($stringText);
+      $this->html .= htmlTags::headingThree ('Pop function');
+      $this->html .= htmlTags::changeRow (arrayFunctions::printThis ($arrayInput));
+      $this->html .= htmlTags::changeRow (arrayFunctions::printThis (arrayFunctions::arrayPop ($arrayInput)));
+      $this->html .= htmlTags::horizontalRule ();
       //8th
-      $stringText = "<h3>Shift function</h3>";
-      stringFunctions::printThis ($stringText);
-      $arrayInput = array('a','c','b',22,6,'a');
-      arrayFunctions::printThis ($arrayInput);
-      arrayFunctions::arrayShift ($arrayInput);
-      $stringText = "<hr />";
-      stringFunctions::printThis ($stringText);
+      $this->html .= htmlTags::headingThree ('Shift function');
+      $this->html .= htmlTags::changeRow (arrayFunctions::printThis ($arrayInput));
+      $this->html .= htmlTags::changeRow (arrayFunctions::printThis (arrayFunctions::arrayShift ($arrayInput)));
+      $this->html .= htmlTags::horizontalRule ();
       //9th
-      $stringText = "<h3>Fetch a key function</h3>";
-      stringFunctions::printThis ($stringText);
-      $arrayInput = array('a','c','b',22,6,'a');
-      arrayFunctions::printThis ($arrayInput);
-      arrayFunctions::fetchKey ($arrayInput);
-      $stringText = "<hr />";
-      stringFunctions::printThis ($stringText);
+      $this->html .= htmlTags::headingThree ('Fetch a key function');
+      $this->html .= htmlTags::changeRow (arrayFunctions::printThis ($arrayInput));
+      $this->html .= htmlTags::changeRow (arrayFunctions::fetchKey ($arrayInput));
+      $this->html .= htmlTags::horizontalRule ();
       //10th
-      $stringText = "<h3>Create an array containing a range of elements function</h3>";
-      stringFunctions::printThis ($stringText);
+      $this->html .= htmlTags::headingThree ('Create an array containing a range of elements function');
+      $this->html .= htmlTags::changeRow (arrayFunctions::printThis ($arrayInput));
       $arrRangeStr = 10;
       $arrRangeEnd = 100;
       $arrRange = 5;
-      $stringText = "I would like to create an array starts at $arrRangeStr and
-      ends at $arrRangeEnd with the range of $arrRange";
-      stringFunctions::printThis ($stringText);
-      arrayFunctions::arrayRange ($arrRangeStr,$arrRangeEnd,$arrRange);
-      $stringText = "<hr />";
-      stringFunctions::printThis ($stringText);
+      $this->html .= htmlTags::changeRow ('I would like to create an array starts at ' . $arrRangeStr . ' ends at ' . $arrRangeEnd . ' with the range of ' .
+      $arrRange);
+      $this->html .= htmlTags::changeRow (arrayFunctions::printThis (arrayFunctions::arrayRange ($arrRangeStr,$arrRangeEnd,$arrRange)));
+      $this->html .= htmlTags::horizontalRule ();
     }
+
     public function __destruct () {
-      echo '</br> I\'m Done';
+      $this->html .= htmlTags::changeRow ('I\'m Done');
+      stringfunctions::printThis ($this->html);
     }
   }
   
@@ -185,28 +172,25 @@
     }
     
     static public function arraySum ($input) {
-      print("</br>" . array_sum($input));
+      return array_sum($input);
     }
     
     static public function arrayPop ($input) { 
-      print("</br>");
       array_pop($input);
-      print_r($input);
+      return $input;
     }
 
     static public function arrayShift ($input) {
-      print("</br>");
       array_Shift($input);
-      print_r($input);
+      return $input;
     }
 
     static public function fetchKey ($input) {
-      print("</br>" . key($input));
+      return key($input);
     }
 
     static public function arrayRange ($input,$input2,$input3) {
-      print("</br>");
-      print_r(range($input,$input2,$input3));
+      return range($input,$input2,$input3);
     }
   }
 
